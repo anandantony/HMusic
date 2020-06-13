@@ -30,7 +30,8 @@ bot.on('message', message => {
 
         let ops = {
             ownerID: ownerID,
-            active: active
+            active: active,
+            volume: 100
         }
 
         let commandFile = require(`./Commands/${cmd}.js`);
