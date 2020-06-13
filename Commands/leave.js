@@ -8,7 +8,12 @@ exports.run = (client, message, args, ops) => {
 
     let fetched = ops.active.get(message.guild.id);
 
+    if (!fetched.dispatcher.paused)
+        fetched.dispatcher.pause();
+
     if (fetched) fetched.queue = [];
+
+    fetched.dispatcher.end();
 
     message.guild.me.voice.channel.leave();
     message.channel.send('Leaving channel...');
