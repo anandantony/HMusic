@@ -37,6 +37,7 @@ bot.on('message', message => {
         commandFile.run(bot, message, args, ops);
     } catch (e) {
         console.log(e.stack);
+        message.channel.send('Unkown command. Please try again...');
     }
 
 })
