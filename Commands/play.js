@@ -8,7 +8,10 @@ exports.run = async (client, message, args, ops) => {
 
     let validate = await ytdl.validateURL(args[0]);
 
-    if (!validate) return message.channel.send('Sorry, please enter a valid URL...');
+    if (!validate) {
+        let commandFile = require('./search');
+        commandFile.run(client, message, args, ops);
+    }
 
     let info = await ytdl.getInfo(args[0]);
     
