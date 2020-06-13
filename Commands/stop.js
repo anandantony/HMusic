@@ -11,5 +11,5 @@ exports.run = async (client, message, args, ops) => {
     
     fetched.queue.length = 0;
 
-    return message.channel.send('Stopped...');
+    message.channel.send('Stopped...');
 }
