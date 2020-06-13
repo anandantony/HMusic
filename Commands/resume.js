@@ -10,6 +10,7 @@ exports.run = async (client, message, args, ops) => {
 
     fetched.dispatcher.resume();
 
-    message.channel.send(`Successfully resumed ${fetched.queue[0].songTitle}`);
+    if (fetched.queue[0])
+        message.channel.send(`Successfully resumed ${fetched.queue[0].songTitle}`);
 
 }
