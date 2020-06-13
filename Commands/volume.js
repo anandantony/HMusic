@@ -10,6 +10,6 @@ exports.run = async (client, message, args, ops) => {
 
     fetched.dispatcher.setVolume(args[0] / 100);
 
-    message.channel.send(`Successfully set the volume to ${args[0]}`);
+    message.channel.send(`Volume successfully set to ${args[0]}`);
 
 }
