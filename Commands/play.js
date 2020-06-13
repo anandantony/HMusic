@@ -9,7 +9,7 @@ exports.run = async (client, message, args, ops) => {
     let validate = await ytdl.validateURL(args[0]);
 
     if (!validate) {
-        let commandFile = require('./search');
+        let commandFile = require(`./search`);
         commandFile.run(client, message, args, ops);
     }
 
