@@ -58,7 +58,7 @@ function finish(client, ops, dispatcher) {
     } else {
         ops.active.delete(dispatcher.guildID);
 
-        let voiceChannel = client.guilds.get(dispatcher.guildID).me.voice.channel;
+        let voiceChannel = client.guilds.cache.get(dispatcher.guildID).me.voice.channel;
         if (voiceChannel) voiceChannel.leave();
     }
 }
