@@ -11,6 +11,5 @@ exports.run = async (client, message, args, ops) => {
     
     fetched.queue.length = 0;
 
-    message.guild.me.voice.channel.leave();
-    message.channel.send('Stopped...');
+    return message.channel.send('Stopped...');
 }
