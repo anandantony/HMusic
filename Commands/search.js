@@ -21,7 +21,7 @@ exports.run = async (client, message, args, ops) => {
 
         collector.once('collect', function (m) {
             let commandFile = require(`./play`);
-            commandFile.run(client, message, videos[parseInt(m.content)-1].url, ops);
+            commandFile.run(client, message, [videos[parseInt(m.content)-1].url], ops);
         });
 
     });
