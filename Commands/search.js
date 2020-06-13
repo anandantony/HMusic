@@ -20,8 +20,8 @@ exports.run = async (client, message, args, ops) => {
         const collector = message.channel.createMessageCollector(filter);
 
         collector.once('collect', function (m) {
-            let commandFile = require(`./play.js`);
-            commandFile.run(client, message, [this.videos[parseInt(m.content) - 1].url], ops);
+            let commandFile = require(`./play`);
+            commandFile.run(client, message, videos[parseInt(m.content)-1].url, ops);
         });
 
     });
