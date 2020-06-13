@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
         hourOffset = 0;
         minuteOffset = 0;
     }
-    else if (offset > 0) {
+    else if (offset < 0) {
         hourOffset = -(offset / 60);
         minuteOffset = -(offset % 60);
     }
