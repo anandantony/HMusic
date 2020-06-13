@@ -21,6 +21,8 @@ exports.run = async (client, message, args, ops) => {
     if (!data.queue) data.queue = [];       //make a queue if it doesn't exists
     data.guildID = message.guild.id;
 
+    if (!data.volume) data.volume = 1;
+
     //adding to queue
     data.queue.push({
         songTitle: info.title,
@@ -46,7 +48,7 @@ async function play(client, ops, data) {
     
     data.dispatcher.guildID = data.guildID;
 
-    data.dispatcher.setVolume(ops.volume);
+    data.dispatcher.setVolume(data.volume);
 
     //song end
     data.dispatcher.on("finish", function () {

@@ -8,8 +8,9 @@ exports.run = async (client, message, args, ops) => {
 
     if (isNaN(args[0] || args[0] > 200 || args[0] < 0)) return message.channel.send('Please input a value between 0 and 200.');
 
-    ops.volume = args[0] / 100;
+    
     fetched.dispatcher.setVolume(args[0] / 100);
+    fetched.volume = args[0] / 100;
 
     message.channel.send(`Volume successfully set to ${args[0]}`);
 
