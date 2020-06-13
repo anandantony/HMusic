@@ -48,7 +48,7 @@ async function play(client, ops, data) {
     client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: ${data.queue[0].songTitle} | Requested by: ${data.queue[0].requester}`);
 
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly' }));
-    data.dispatcher.guild.id = data.guildID;
+    data.dispatcher.guildID = data.guildID;
 
     //song end
     data.dispatcher.once('end', function () {
