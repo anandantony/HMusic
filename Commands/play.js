@@ -51,7 +51,7 @@ async function play(client, ops, data) {
     data.dispatcher.guildID = data.guildID;
 
     //song end
-    data.dispatcher.once('end', function () {
+    data.dispatcher.on('end', function () {
         finish(client, ops, data);
     });
 
