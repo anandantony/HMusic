@@ -43,7 +43,7 @@ async function play(client, ops, data) {
 
     //song end
     data.dispatcher.on('end', function () {
-        finish(client, ops, data);
+        finish(client, ops, data.dispatcher);
     });
 
 }
