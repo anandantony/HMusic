@@ -20,8 +20,13 @@ exports.run = async (client, message, args, ops) => {
         const collector = message.channel.createMessageCollector(filter);
 
         collector.once('collect', function (m) {
-            let commandFile = require(`./play`);
-            commandFile.run(client, message, [videos[parseInt(m.content)-1].url], ops);
+            if (isNaN(parseInt(m.content))) {
+                return message.channel.send('Not a valid option... Please try again.');
+            }
+            else {
+                let commandFile = require(`./play`);
+                commandFile.run(client, message, [videos[parseInt(m.content)-1].url], ops);   
+            }
         });
 
     });
