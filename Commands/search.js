@@ -12,12 +12,12 @@ exports.run = async (client, message, args, ops) => {
             resp += `**[${parseInt(i) + 1}]:** \`${videos[i].title}\`\n`;
         }
 
-        resp += `\n**Choose a number between \`1-${videos.length}\`**`;
+        resp += `\n**Choose a number between \`1-${videos.length}\` or enter c to cancel search**`;
 
         message.channel.send(resp);
 
-        const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
-        const collector = message.channel.createMessageCollector(filter, { max: 1 });
+        const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0 && m.content == 'c';
+        const collector = message.channel.createMessageCollector(filter, { max: 1, maxProcessed: 1 });
 
         try {
             collector.once('collect', function (m) {
