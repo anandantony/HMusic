@@ -18,7 +18,7 @@ exports.run = async (client, message, args, ops) => {
 
         // const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0 && m.content == 'c';
         const filter = m => (m.content < videos.length + 1 && m.content > 0) || m.content == 'c';
-        const collector = message.channel.createMessageCollector(filter, { max: 1, maxProcessed: 1 });
+        const collector = message.channel.createMessageCollector(filter, { max: 2, maxProcessed: 2 });
 
         try {
             collector.once('collect', function (m) {
