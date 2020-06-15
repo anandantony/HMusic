@@ -16,19 +16,17 @@ exports.run = async (client, message, args, ops) => {
 
         message.channel.send(resp);
 
-        // const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
-        const filter = m => m.content;
-        const collector = message.channel.createMessageCollector(filter);
+        const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
+        const collector = message.channel.createMessageCollector(filter, { max: 1 });
 
-        collector.once('collect', function (m) {
-            if (isNaN(parseInt(m.content) || m.content < 0 || m.content > videos.length)) {
-                return message.channel.send('Not a valid option... Please try again.');
-            }
-            else {
+        try {
+            collector.once('collect', function (m) {
                 let commandFile = require(`./play`);
-                commandFile.run(client, message, [videos[parseInt(m.content)-1].url], ops);   
-            }
-        });
+                commandFile.run(client, message, [videos[parseInt(m.content) - 1].url], ops);
+            });
+        } catch (e) {
+            message.channel.send('Enter valid option... Please try again.');
+        }
 
     });
 }
