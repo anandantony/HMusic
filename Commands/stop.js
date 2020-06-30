@@ -7,10 +7,14 @@ exports.run = (client, message, args, ops) => {
     if (message.guild.me.voice.channelID !== message.member.voice.channelID) return message.channel.send('Sorry, you aren\'t connected to the same channel...');
 
     let fetched = ops.active.get(message.guild.id);
-    fetched.dispatcher.end();
+    
 
-    if (fetched) ops.active.queue = [];
-
+    if (fetched) {
+        fetched.dispatcher.end();
+        ops.active.queue = [];
+    }
+    else
+        message.guild.me.voice.channel.leave();
     
 
     message.guild.me.voice.channel.leave();
