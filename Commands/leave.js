@@ -6,8 +6,8 @@ exports.run = (client, message, args, ops) => {
     
 
     if (fetched) {
-        fetched.dispatcher.end();
         ops.active.queue = [];
+        fetched.dispatcher.end();
     }
     message.guild.me.voice.channel.leave();
     message.channel.send('Leaving channel...');
