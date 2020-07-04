@@ -6,10 +6,14 @@ exports.run = async (client, message, args, ops) => {
 
     if (message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send('Sorry, you currently aren\'t in the same voice channel...');
 
-    if (fetched.dispatcher.paused) return message.channel.send('This music is already paused...');
+    if (fetched.dispatcher.paused) {
+        fetched.dispatcher.resume();
+        if (fetched.queue[0])
+            message.channel.send(`Successfully resumed ${fetched.queue[0].songTitle}`);
+    }
+    else if(!fetched.dispatcher.paused){
+        fetched.dispatcher.pause();
 
-    fetched.dispatcher.pause();
-
-    message.channel.send(`Successfully paused ${fetched.queue[0].songTitle}`);
-
+        message.channel.send(`Successfully paused ${fetched.queue[0].songTitle}`);
+    }
 }
