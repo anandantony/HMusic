@@ -9,9 +9,9 @@
   "author": "Anand Antony",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.3.1",
     "opusscript": "0.0.7",
-    "yt-search": "^2.0.1",
-    "ytdl-core": "^2.1.7"
+    "yt-search": "^2.2.0",
+    "ytdl-core": "^3.2.2"
   }
 }
