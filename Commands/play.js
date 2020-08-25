@@ -25,7 +25,7 @@ exports.run = async (client, message, args, ops) => {
 
     //adding to queue
     data.queue.push({
-        songTitle: info.title,
+        songTitle: info.videoDetails.title,
         requester: message.author.tag,
         url: args[0],
         announceChannel: message.channel.id
@@ -33,7 +33,7 @@ exports.run = async (client, message, args, ops) => {
 
     if (!data.dispatcher) play(client, ops, data);
     else {
-        message.channel.send(`Added to queue: ${info.title} | Requested by: ${message.author.id}`);
+        message.channel.send(`Added to queue: ${info.videoDetails.title} | Requested by: ${message.author.id}`);
     }
 
     //update map
