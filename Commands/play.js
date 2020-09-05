@@ -45,24 +45,6 @@ exports.run = async (client, message, args, ops) => {
 async function play(client, ops, data) {
     client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: ${data.queue[0].songTitle} | Requested by: ${data.queue[0].requester}`);
 
-    if(client.channels.cache.get(data.queue[0].announceChannel).guild == Client.guild){
-        client.user.setPresence({
-        activity: {
-            name: `${data.queue[0].songTitle}`,
-            type: "PLAYING"
-            }
-        });
-    }
-    else{
-        client.user.setPresence({
-            activity: {
-                name: "-help",
-                type: "PLAYING"
-            }
-        });
-    }
-    
-
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly' }));
     
     data.dispatcher.guildID = data.guildID;
@@ -72,12 +54,6 @@ async function play(client, ops, data) {
     //song end
     data.dispatcher.on("finish", function () {
         finish(client, ops, data.dispatcher);
-        client.user.setPresence({
-            activity: {
-                name: "-help",
-                type: "PLAYING"
-            }
-        });
     });
 
 }
