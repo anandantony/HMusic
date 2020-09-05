@@ -9,14 +9,14 @@ const ownerID = process.env.OWN_TOKEN;
 
 const active = new Map();
 
-const activity = new Discord.Activity;
+var activity = new Discord.Activity();
 
 var servers = {};
 
 bot.on('ready', () => {
     console.log('Yo! I am online!');
     activity.name = "-help";
-    bot.user.setPresence({activity});
+    bot.user.setPresence(activity);
 })
 
 bot.on('message', message => {
