@@ -47,7 +47,7 @@ async function play(client, ops, data) {
     client.user.setPresence({
         activity: {
             name: `${data.queue[0].songTitle}`,
-            type: "STREAMING"
+            type: "PLAYING"
         }
     });
 
