@@ -13,6 +13,13 @@ var servers = {};
 
 bot.on('ready', () => {
     console.log('Yo! I am online!');
+    bot.user.setPresence({
+        status: "online",
+        game: {
+            name: "-help",
+            type: "PLAYING"
+        }
+    });
 })
 
 bot.on('message', message => {
