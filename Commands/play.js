@@ -44,6 +44,14 @@ exports.run = async (client, message, args, ops) => {
 async function play(client, ops, data) {
     client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: ${data.queue[0].songTitle} | Requested by: ${data.queue[0].requester}`);
 
+    client.user.setPresence({
+        status: "online",
+        activity: {
+            name: `${data.queue[0].songTitle}`,
+            type: "PLAYING"
+        }
+    });
+
     data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly' }));
     
     data.dispatcher.guildID = data.guildID;
@@ -53,6 +61,13 @@ async function play(client, ops, data) {
     //song end
     data.dispatcher.on("finish", function () {
         finish(client, ops, data.dispatcher);
+        client.user.setPresence({
+            status: "online",
+            activity: {
+                name: "-help",
+                type: "PLAYING"
+            }
+        });
     });
 
 }
