@@ -17,7 +17,7 @@ bot.on('ready', () => {
         status: "online",
         activity: {
             name: "-help",
-            type: "PLAYING"
+            type: "CUSTOM_STATUS"
         }
     });
 })
