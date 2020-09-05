@@ -45,7 +45,6 @@ async function play(client, ops, data) {
     client.channels.cache.get(data.queue[0].announceChannel).send(`Now Playing: ${data.queue[0].songTitle} | Requested by: ${data.queue[0].requester}`);
 
     client.user.setPresence({
-        status: "online",
         activity: {
             name: `${data.queue[0].songTitle}`,
             type: "PLAYING"
@@ -62,7 +61,6 @@ async function play(client, ops, data) {
     data.dispatcher.on("finish", function () {
         finish(client, ops, data.dispatcher);
         client.user.setPresence({
-            status: "online",
             activity: {
                 name: "-help",
                 type: "PLAYING"
