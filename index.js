@@ -16,8 +16,8 @@ bot.on('ready', () => {
     bot.user.setPresence({
         status: "online",
         activity: {
-            name: "-help",
-            type: "CUSTOM_STATUS"
+            name: "songs for you. Enter '-help' for more info.",
+            type: "PLAYING"
         }
     });
 })
