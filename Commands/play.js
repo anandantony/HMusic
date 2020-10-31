@@ -5,7 +5,10 @@ exports.run = async (client, message, args, ops) => {
     
     if (!message.member.voice.channel) return message.channel.send('Please connect to a voice channel...');
     
-    if (!args[0]) return message.channel.send('Please input a URL or song name following the command...');
+    if (!args[0]) {
+        let commandFile = require(`./p`);
+        commandFile.run(client, message, args, ops);
+    }
 
     let validate = await ytdl.validateURL(args[0]);
 
