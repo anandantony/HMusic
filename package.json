@@ -12,6 +12,6 @@
     "discord.js": "^12.3.1",
     "opusscript": "0.0.7",
     "yt-search": "^2.3.3",
-    "ytdl-core": "^3.4.1"
+    "ytdl-core": "^4.0.0"
   }
 }
