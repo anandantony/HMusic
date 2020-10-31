@@ -1,5 +1,5 @@
 exports.run = async (client, message, args, ops) => { 
-    resp = `**List of Commands:\n1. -play : input a URL or the name of the song after the command. If a song was paused it resumes the song.
+    resp = `**List of Commands:\n1. -play : input a URL or the name of the song after the command (if not Pauses or Resumes the current song).
     \n2. -search : Searches for a song and provides a list to choose from.
     \n3. -p : Pauses or Resumes the song.
     \n4. -skip : Skips the current song.
