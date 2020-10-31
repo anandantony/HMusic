@@ -8,6 +8,7 @@ exports.run = async (client, message, args, ops) => {
     if (!args[0]) {
         let commandFile = require(`./p`);
         commandFile.run(client, message, args, ops);
+        return;
     }
 
     let validate = await ytdl.validateURL(args[0]);
