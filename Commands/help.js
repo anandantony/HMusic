@@ -6,6 +6,10 @@ exports.run = async (client, message, args, ops) => {
     \n5. -v / -volume : Sets the volume of the song.
     \n6. -q / -queue : Shows the current queue.
     \n7. -clear : Clears the queue.
-    \n8. -stop : Stops and leaves the voice channel**`;
+    \n8. -stop : Stops and leaves the voice channel
+    
+    Try to avoid special symbols in the name of the songs...
+    It makes the bot a bit cranky 😐
+    **`;
     message.channel.send(resp);
 }
