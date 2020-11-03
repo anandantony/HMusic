@@ -1,7 +1,7 @@
 {
-    "owners" : [""],
+    "owners" : ["OWN_TOKEN"],
     "tokens" : {
-        "discord" : "",
+        "discord" : "BOT_TOKEN",
         "soundcloud" : "",
         "youtube" : "",
         "spotify" : {
