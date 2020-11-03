@@ -9,7 +9,7 @@
             "clientSecret" : ""
         }
     },
-    "commandToken" : "$",
+    "commandToken" : "-",
     "botPerms": [
         "ADD_REACTIONS",
         "CHANGE_NICKNAME",
