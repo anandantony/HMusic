@@ -1,1 +1,1 @@
-web:hmusic/src/config/app.ts 
+Worker: node index.js
